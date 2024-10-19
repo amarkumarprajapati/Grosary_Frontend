@@ -27,8 +27,6 @@ const store = configureStore({
     }),
 });
 
-// Create the persistor
-const persistor = persistStore(store);
 
-// Export both store and persistor
+const persistor = persistStore(store);
 export { store, persistor };
