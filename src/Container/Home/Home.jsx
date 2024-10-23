@@ -10,7 +10,6 @@ import Footer from "../../common/Footer";
 const Home = ({ text }) => {
   const [show, setshow] = useState(false);
   const [buttonText, setButtonText] = useState("See All");
-
   const haldleshow = () => {
     setshow(!show);
 
@@ -22,7 +21,7 @@ const Home = ({ text }) => {
     }
   };
 
-  // useeffect
+
   const [displayText, setDisplayText] = useState("");
   const [currentIndex, setCurrentIndex] = useState(0);
 
