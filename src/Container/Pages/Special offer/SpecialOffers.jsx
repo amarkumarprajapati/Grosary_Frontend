@@ -2,53 +2,55 @@ import React, { useRef } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { FaArrowLeft, FaArrowRight } from "react-icons/fa"; // Import icons for arrows
+import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import ProductCard from "../../../Components/Rusable/ProductCard";
 
 const specialOffers = [
   { id: 1, title: "Product 1", price: "$25", image: "/path/to/image1.jpg" },
   { id: 2, title: "Product 2", price: "$30", image: "/path/to/image2.jpg" },
   { id: 3, title: "Product 3", price: "$45", image: "/path/to/image3.jpg" },
   { id: 4, title: "Product 4", price: "$55", image: "/path/to/image4.jpg" },
-  // Add more products as needed
+  { id: 5, title: "Product 5", price: "$20", image: "/path/to/image5.jpg" },
+  { id: 6, title: "Product 6", price: "$35", image: "/path/to/image6.jpg" },
+  { id: 7, title: "Product 7", price: "$40", image: "/path/to/image7.jpg" },
+  { id: 8, title: "Product 8", price: "$50", image: "/path/to/image8.jpg" },
+  { id: 9, title: "Product 9", price: "$60", image: "/path/to/image9.jpg" },
+  { id: 10, title: "Product 10", price: "$70", image: "/path/to/image10.jpg" },
 ];
 
 const SpecialOffers = () => {
-  const sliderRef = useRef(null); // Create a reference for the slider
+  const sliderRef = useRef(null);
 
   const sliderSettings = {
     dots: true,
-    infinite: true,
+    infinite: false,
     speed: 500,
-    slidesToShow: 3,
+    slidesToShow: 5, // Show 5 cards at once
     slidesToScroll: 1,
-    nextArrow: null, // Remove default next arrow
-    prevArrow: null, // Remove default previous arrow
+    nextArrow: null,
+    prevArrow: null,
     responsive: [
-      { breakpoint: 1024, settings: { slidesToShow: 3 } },
-      { breakpoint: 768, settings: { slidesToShow: 2 } },
-      { breakpoint: 480, settings: { slidesToShow: 1 } },
+      { breakpoint: 1024, settings: { slidesToShow: 4 } },
+      { breakpoint: 768, settings: { slidesToShow: 3 } },
+      { breakpoint: 480, settings: { slidesToShow: 2 } },
     ],
   };
 
   return (
     <section className="p-6 bg-gray-50 relative">
       <div className="text-3xl font-bold text-center mb-6">Special Offers</div>
+      
+      {/* Slider */}
       <Slider ref={sliderRef} {...sliderSettings}>
         {specialOffers.map((item) => (
-          <div key={item.id} className="p-4">
-            <div className="bg-white shadow-lg rounded-lg p-4 hover:shadow-xl transition-shadow duration-300">
-              <img
-                src={item.image}
-                alt={item.title}
-                className="w-full h-48 object-cover rounded-md mb-4"
-              />
-              <h3 className="text-lg font-semibold">{item.title}</h3>
-              <p className="text-gray-600">{item.price}</p>
+          <div key={item.id} className="flex justify-center" style={{ padding: '0 4px' }}> {/* Reduced padding */}
+            <div className="w-40"> {/* Fixed width for ProductCard */}
+              <ProductCard {...item} />
             </div>
           </div>
         ))}
       </Slider>
-      
+
       {/* Custom Navigation Buttons */}
       <button
         className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-[#468D93] rounded-full p-2 text-white shadow hover:bg-[#3a7a7f] z-10"
