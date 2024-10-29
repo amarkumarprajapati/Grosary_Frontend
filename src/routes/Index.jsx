@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from "../Container/Home/Home";
+import Home from "../Container/Pages/Home/Home";
 import Login from "../Components/userLogin/Login";
 import LazyLoad from "react-lazyload";
 import NearestStore from "../Container/Store/Nearest/Nearseststore";

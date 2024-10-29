@@ -9,132 +9,113 @@ const Navbar = () => {
   };
 
   return (
-    <div>
-      <div className="flex flex-col sm:flex-row justify-between items-center px-20 py-5">
-        <div className="mb-5 sm:mb-0">
-          <h1
-            className="lg:text-5xl font-semibold text-[#458C93] sm:text-5xl cursor-pointer"
-            onClick={gotoHomePage}
-          >
-            ontheshelf
-          </h1>
-        </div>
+    <div className="flex flex-col sm:flex-row justify-between items-center px-8 py-4 shadow-lg bg-white dark:bg-gray-800">
+      {/* Logo */}
+      <div className="mb-5 sm:mb-0 cursor-pointer" onClick={gotoHomePage}>
+        <h1 className="text-3xl lg:text-4xl font-bold text-[#458C93]">
+          ontheshelf
+        </h1>
+      </div>
 
-        <form class="max-w-md mx-auto">
-          <label
-            for="default-search"
-            class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
+      {/* Search Bar */}
+      <form className="flex-grow max-w-md mx-4 relative">
+        <input
+          type="search"
+          className="w-full p-3 pl-10 rounded-lg bg-gray-100 border border-gray-300 text-sm text-gray-700 focus:ring-2 focus:ring-[#458C93] dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+          placeholder="Search products..."
+          required
+        />
+        <button
+          type="submit"
+          className="absolute right-2 top-2 text-white bg-[#458C93] p-2 rounded-lg hover:bg-blue-700"
+        >
+          <svg
+            className="w-5 h-5"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
           >
-            Search
-          </label>
-          <div class="relative">
-            <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
-              <svg
-                class="w-4 h-4 text-gray-500 dark:text-gray-400"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 20 20"
-              >
-                <path
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
-                />
-              </svg>
-            </div>
-            <input
-              type="search"
-              id="default-search"
-              className="block w-96 p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-[#458C92] dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              placeholder="Search Mockups, Logos..."
-              required
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
             />
+          </svg>
+        </button>
+      </form>
 
-            <button
-              type="submit"
-              class="text-white absolute end-2.5 bottom-2.5 bg-[#458C92] hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-            >
-              Search
-            </button>
-          </div>
-        </form>
+      {/* Icons and Actions */}
+      <div className="flex items-center gap-6">
+        <Link
+          to="/wishlist"
+          className="flex items-center gap-2 text-gray-700 dark:text-gray-300 hover:text-[#458C93]"
+        >
+          <svg
+            className="w-6 h-6"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M3 3l1.646 1.646a8 8 0 0111.314 0L20 3v9h-3a3 3 0 00-3 3v3h-3l-1 3h4"
+            />
+          </svg>
+          <span className="hidden sm:inline">Wishlist</span>
+        </Link>
 
-        <div className="flex gap-5">
-          <div className="mx-10 sm:mx-0 flex flex-row sm:flex-col lg:flex-row gap-5 items-center">
-            <Link to="/login">
-              <div class="hs-dropdown relative inline-flex">
-                <button
-                  id="hs-dropdown-default"
-                  type="button"
-                  class="hs-dropdown-toggle py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
-                  aria-haspopup="menu"
-                  aria-expanded="false"
-                  aria-label="Dropdown"
-                >
-                  Actions
-                  <svg
-                    class="hs-dropdown-open:rotate-180 size-4"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <path d="m6 9 6 6 6-6" />
-                  </svg>
-                </button>
+        <Link
+          to="/cart"
+          className="flex items-center gap-2 text-gray-700 dark:text-gray-300 hover:text-[#458C93]"
+        >
+          <svg
+            className="w-6 h-6"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M3 3h18l-2 10H5L3 3zM6 22a2 2 0 100-4 2 2 0 000 4zm10 0a2 2 0 100-4 2 2 0 000 4z"
+            />
+          </svg>
+          <span className="hidden sm:inline">Cart</span>
+        </Link>
 
-                <div
-                  class="hs-dropdown-menu transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 hidden min-w-60 bg-white shadow-md rounded-lg mt-2 after:h-4 after:absolute after:-bottom-4 after:start-0 after:w-full before:h-4 before:absolute before:-top-4 before:start-0 before:w-full"
-                  role="menu"
-                  aria-orientation="vertical"
-                  aria-labelledby="hs-dropdown-default"
-                >
-                  <div class="p-1 space-y-0.5">
-                    <a
-                      class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
-                      href="#"
-                    >
-                      Newsletter
-                    </a>
-                    <a
-                      class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
-                      href="#"
-                    >
-                      Purchases
-                    </a>
-                    <a
-                      class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
-                      href="#"
-                    >
-                      Downloads
-                    </a>
-                    <a
-                      class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
-                      href="#"
-                    >
-                      Team Account
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </Link>
-          </div>
-          <div className="mx-10 sm:mx-0 flex flex-row sm:flex-col lg:flex-row gap-5 items-center">
-            <Link to="/login">
-              <button className="px-10 py-3 bg-[#40878E] rounded-xl text-white">
-                Login / Register
-              </button>
-            </Link>
-          </div>
-        </div>
+        <Link
+          to="/location"
+          className="flex items-center gap-2 text-gray-700 dark:text-gray-300 hover:text-[#458C93]"
+        >
+          <svg
+            className="w-6 h-6"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M12 2a7 7 0 017 7c0 4-7 13-7 13s-7-9-7-13a7 7 0 017-7z"
+            />
+          </svg>
+          <span className="hidden sm:inline">Location</span>
+        </Link>
+
+        <Link to="/login">
+          <button className="px-4 py-2 text-white bg-[#40878E] rounded-lg hover:bg-[#458C93]">
+            Login / Register
+          </button>
+        </Link>
       </div>
     </div>
   );
